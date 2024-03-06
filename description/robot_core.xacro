@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-    <xacro:include filename="inertial_macros.xacro"/>
+    <!-- UNITS: Metric units for everything. Kilograms for mass and Meters for length -->
 
+    <xacro:include filename="inertial_macros.xacro"/>
 
     <xacro:property name="chassis_length" value="0.335"/>
     <xacro:property name="chassis_width" value="0.265"/>
@@ -14,7 +15,7 @@
     <xacro:property name="back_wheel_offset_x" value="0.226"/>
     <xacro:property name="wheel_offset_y" value="0.1485"/>
     <xacro:property name="wheel_offset_z" value="0.01"/>
-    <xacro:property name="caster_wheel_radius" value="0.01"/>
+    <xacro:property name="caster_wheel_radius" value="0.05"/>
     <xacro:property name="caster_wheel_mass" value="0.01"/>
     <xacro:property name="caster_wheel_offset_x" value="0.075"/>
     <xacro:property name="caster_wheel_offset_z" value="${wheel_offset_z - wheel_radius + caster_wheel_radius}"/>
@@ -120,9 +121,6 @@
         <material>Gazebo/Blue</material>
     </gazebo>
 
-
-
-
     <!-- FRONT LEFT WHEEL LINK -->
 
 
@@ -158,9 +156,6 @@
         <material>Gazebo/Blue</material>
     </gazebo>
 
-
-
-
     <!-- FRONT RIGHT WHEEL LINK -->
 
 
@@ -171,7 +166,6 @@
         <child link="caster_wheel"/>
         <origin xyz="${caster_wheel_offset_x} 0 ${caster_wheel_offset_z}"/>
     </joint>
-
 
     <link name="caster_wheel">
         <visual>
