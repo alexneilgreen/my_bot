@@ -1,0 +1,162 @@
+----------------------------------------------------------------------------------------------------
+Setting Up Your Network for ROS | Getting Ready to Build Robots with ROS #2
+----------------------------------------------------------------------------------------------------
+
+Created new network config file in /etc/netplan/ called "02-network-manager-all.yaml"
+ - Use command "sudo pluma /etc/netplan/02-network-manager-all.yaml"
+
+Installed openssh-server using "sudo apt install openssh-server"
+
+To access Robot Pi remotely, use "ssh baaa@192.168.1.132"
+To access Dev Machine remotely, use "ssh baaa@192.168.1.173"
+
+
+
+----------------------------------------------------------------------------------------------------
+How to install ROS | Getting Ready to Build Robots with ROS #3
+----------------------------------------------------------------------------------------------------
+
+Install ROS 2 Humble vis Debian Packages
+
+Commands are as follows:
+
+    sudo apt update && sudo apt install curl gnupg2 lsb-release
+
+    sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key  -o /usr/share/keyrings/ros-archive-keyring.gpg
+
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+
+    sudo apt update
+
+    sudo apt install ros-humble-desktop
+
+    sudo apt install ros-humble-ros-base
+
+Testing to ensure everything works
+
+    source /opt/ros/humble/setup.bash
+
+    On Dev Machine: ros2 run demo_nodes_py listener
+    On Robot Pi: ros2 run demo_nodes_py talker
+
+ ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- 
+
+Installing Colcon & Exstensions
+
+Commands are as follows:
+
+    sudo apt install python3-colcon-common-extensions
+
+Testing to ensure everything works
+
+    colcon
+
+ ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- 
+
+Adding ROS2 Humble Source to bashrc file
+
+Commands are as follows:
+
+    echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+
+Now talker and listener demo should work without source command
+
+Testing to ensure everything works
+
+    On Dev Machine: ros2 run demo_nodes_cpp listener
+    On Robot Pi: ros2 run demo_nodes_cpp talker
+
+
+
+----------------------------------------------------------------------------------------------------
+10 Things You Need To Know About ROS! | Getting Ready to Build Robots with ROS #4
+----------------------------------------------------------------------------------------------------
+
+This is just a video explaining the concepts and tools within ROS or more specifically ROS2
+
+
+
+----------------------------------------------------------------------------------------------------
+Making Your First ROS Package | Getting Ready to Build Robots with ROS #5
+----------------------------------------------------------------------------------------------------
+
+Creating a ROS2 Workspace enviornment
+
+    LINK: https://articulatedrobotics.xyz/ready-for-ros-5-packages/
+
+Install git
+
+Generate SSH key on home
+
+    ssh-keygen
+
+Copy SSH key
+
+Add to github profile
+
+Setup repository and follow instructions for SSH, not HTTPS
+
+
+
+----------------------------------------------------------------------------------------------------
+The ROS Transformation System (TF) | Getting Ready to Build Robots with ROS #6
+----------------------------------------------------------------------------------------------------
+
+This is just a video explaining the concepts and math behind Transforms (Covered in intro to robotics)
+
+It is a very insightful video talking about frames, directions, vectors, and applications
+
+
+
+----------------------------------------------------------------------------------------------------
+How do we describe a robot? With URDF! | Getting Ready to Build Robots with ROS #7
+----------------------------------------------------------------------------------------------------
+
+This video is where we start our project repository called my_bot and create a URDF based on the 
+3D model that I printed for our senior design project.
+
+Looks at URDF, XACRO, and best practices
+
+
+
+----------------------------------------------------------------------------------------------------
+Simulating Robots with gazebo and ROS | Getting Ready to Build Robots with ROS #8
+----------------------------------------------------------------------------------------------------
+
+Installing Gazebo
+
+    sudo apt install ros-humble-gazebo-ros-pkgs
+
+Test installation
+    
+    gazebo /usr/share/gazebo-11/worlds/seesaw.world
+
+
+
+----------------------------------------------------------------------------------------------------
+Creating a rough 3D model of our robot with URDF
+----------------------------------------------------------------------------------------------------
+
+This is the video that explains how to start making a URDF of our robot. Since our robot is 
+different than the one in the video, our files will not look exactly the same.
+
+Installing xacro and joint state publisher gui at the root of each machine
+
+    sudo apt install ros-humble-xacro ros-humble-joint-state-publisher-gui
+
+Note: Using colcon build --symlink-install will update all files as they are saved. You only need to
+      use it again if you add another file to your build
+
+To run simulation:
+
+    Note: Before you get started make sure to source build from dev_ws/
+        source install/setup.bash
+        
+    1. Run Robot State Publisher with the following command from dev_ws/
+        ros2 launch my_bot rsp.launch.py
+        
+    2. Run Joint State Publisher with the following command from dev_ws/
+        ros2 run joint_state_publisher_gui joint_state_publisher_gui
+        
+    3. Run RVIZ using the following configuration command from dev_ws/
+        rviz2 -d src/my_bot/config/view_bot.rviz 
