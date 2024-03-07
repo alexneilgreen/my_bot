@@ -72,6 +72,7 @@
     <joint name="chassis_base_joint" type="fixed">
         <parent link="base_link"/>
         <child link="chassis_base"/>
+        <!-- change this so that the origin is on the complete back wall -->
         <origin xyz="${-back_wheel_offset_x} 0 ${-wheel_offset_z}"/>
     </joint>
 
@@ -102,14 +103,14 @@
     <!-- CHASSIS TOP LINK -->
 
     <joint name="chassis_top_joint" type="fixed">
-        <origin xyz="0 0 0.1905" rpy="0 0 0" />
+        <origin xyz="${chassis_base_length/2} 0 ${chassis_base_height}" rpy="0 0 0" />
         <parent link="chassis_base"/>
         <child link="chassis_top"/>
     </joint>
 
     <link name="chassis_top">
         <visual>
-            <origin xyz="0 0 0" rpy="0 0 0" />
+            <origin xyz="0 0 ${chassis_top_height/2}"/>
             <geometry>
                 <box size="${chassis_top_length} ${chassis_top_width} ${chassis_top_height}" />
             </geometry>
