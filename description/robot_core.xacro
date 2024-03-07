@@ -5,10 +5,14 @@
 
     <xacro:include filename="inertial_macros.xacro"/>
 
-    <xacro:property name="chassis_length" value="0.3556"/>
-    <xacro:property name="chassis_width" value="0.2032"/>
-    <xacro:property name="chassis_height" value="0.3556"/>
-    <xacro:property name="chassis_mass" value="1.0"/>
+    <xacro:property name="chassis_base_length" value="0.3556"/>
+    <xacro:property name="chassis_base_width" value="0.2032"/>
+    <xacro:property name="chassis_base_height" value="0.1397"/>
+    <xacro:property name="chassis_base_mass" value="1.0"/>
+    <xacro:property name="chassis_top_length" value="0.4064"/>
+    <xacro:property name="chassis_top_width" value="0.254"/>
+    <xacro:property name="chassis_top_height" value="0.1905"/>
+    <xacro:property name="chassis_top_mass" value="1.0"/>
     <xacro:property name="wheel_radius" value="0.0762"/>
     <xacro:property name="wheel_thickness" value="0.0254"/>
     <xacro:property name="wheel_mass" value="0.05"/>
@@ -63,37 +67,61 @@
     </link>
 
 
-    <!-- CHASSIS LINK -->
+    <!-- CHASSIS BASE LINK -->
 
-    <joint name="chassis_joint" type="fixed">
+    <joint name="chassis_base_joint" type="fixed">
         <parent link="base_link"/>
-        <child link="chassis"/>
+        <child link="chassis_base"/>
         <origin xyz="${-back_wheel_offset_x} 0 ${-wheel_offset_z}"/>
     </joint>
 
-    <link name="chassis">
+    <link name="chassis_base">
         <visual>
-            <origin xyz="${chassis_length/2} 0 ${chassis_height/2}"/>
+            <origin xyz="${chassis_base_length/2} 0 ${chassis_base_height/2}"/>
             <geometry>
-                <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
+                <box size="${chassis_base_length} ${chassis_base_width} ${chassis_base_height}"/>
             </geometry>
             <material name="black"/>
         </visual>
         <collision>
-            <origin xyz="${chassis_length/2} 0 ${chassis_height/2}"/>
+            <origin xyz="${chassis_base_length/2} 0 ${chassis_base_height/2}"/>
             <geometry>
-                <box size="${chassis_length} ${chassis_width} ${chassis_height}"/>
+                <box size="${chassis_base_length} ${chassis_base_width} ${chassis_base_height}"/>
             </geometry>
         </collision>
-        <xacro:inertial_box mass="0.5" x="${chassis_length}" y="${chassis_width}" z="${chassis_height}">
+        <xacro:inertial_box mass="0.5" x="${chassis_base_length}" y="${chassis_base_width}" z="${chassis_base_height}">
             <!-- origin should match visual origin -->
-            <origin xyz="${chassis_length/2} 0 ${chassis_height/2}" rpy="0 0 0"/> 
+            <origin xyz="${chassis_base_length/2} 0 ${chassis_base_height/2}" rpy="0 0 0"/> 
         </xacro:inertial_box>
     </link>
 
-    <gazebo reference="chassis">
+    <gazebo reference="chassis_base">
         <material>Gazebo/Black</material>
     </gazebo>
+
+    <!-- CHASSIS TOP LINK -->
+
+    <joint name="chassis_top_joint" type="fixed">
+        <origin xyz="0 0 0.1905" rpy="0 0 0" />
+        <parent link="chassis_base"/>
+        <child link="chassis_top"/>
+    </joint>
+
+    <link name="chassis_top">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="${chassis_top_length} ${chassis_top_width} ${chassis_top_height}" />
+            </geometry>
+            <material name="gold" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="${chassis_top_length} ${chassis_top_width} ${chassis_top_height}" />
+            </geometry>
+        </collision>
+    </link>
 
     <!-- BACK LEFT WHEEL LINK -->
 
