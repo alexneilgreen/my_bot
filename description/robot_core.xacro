@@ -13,6 +13,7 @@
     <xacro:property name="chassis_top_width" value="0.254"/>
     <xacro:property name="chassis_top_height" value="0.1905"/>
     <xacro:property name="chassis_top_mass" value="1.0"/>
+    <xacro:property name="lid_thickness" value="0.0254"/>
     <xacro:property name="wheel_radius" value="0.0762"/>
     <xacro:property name="wheel_thickness" value="0.0254"/>
     <xacro:property name="wheel_mass" value="0.05"/>
@@ -124,6 +125,10 @@
         </collision>
     </link>
 
+    <gazebo reference="chassis_top">
+        <material>Gazebo/Black</material>
+    </gazebo>
+
     <!-- LID LINK -->
 
     <joint name="lid_joint" type="fixed">
@@ -134,19 +139,23 @@
 
     <link name="lid">
         <visual>
-            <origin xyz="0 0 ${chassis_top_height}" />
+            <origin xyz="0 0 ${lid_thickness/2}" />
             <geometry>
-                <box size="${chassis_top_length} ${chassis_top_width} ${chassis_top_height}" />
+                <box size="${chassis_top_length} ${chassis_top_width} ${lid_thickness}" />
             </geometry>
-            <material name="white" />
+            <material name="black" />
         </visual>
         <collision>
-            <origin xyz="0 0 ${chassis_top_height}" />
+            <origin xyz="0 0 ${lid_thickness}" />
             <geometry>
-                <box size="${chassis_top_length} ${chassis_top_width} ${chassis_top_height}" />
+                <box size="${chassis_top_length} ${chassis_top_width} ${lid_thickness}" />
             </geometry>
         </collision>
     </link>
+
+    <gazebo reference="lid">
+        <material>Gazebo/Gold</material>
+    </gazebo>
 
     <!-- BACK LEFT WHEEL LINK -->
 
