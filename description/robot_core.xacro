@@ -124,6 +124,30 @@
         </collision>
     </link>
 
+    <!-- LID LINK -->
+
+    <joint name="lid_joint" type="fixed">
+        <origin xyz="0 0 ${chassis_top_height}" />
+        <parent link="chassis_top"/>
+        <child link="lid"/>
+    </joint>
+
+    <link name="lid">
+        <visual>
+            <origin xyz="0 0 ${chassis_top_height}" />
+            <geometry>
+                <box size="${chassis_top_length} ${chassis_top_width} ${chassis_top_height}" />
+            </geometry>
+            <material name="white" />
+        </visual>
+        <collision>
+            <origin xyz="0 0 ${chassis_top_height}" />
+            <geometry>
+                <box size="${chassis_top_length} ${chassis_top_width} ${chassis_top_height}" />
+            </geometry>
+        </collision>
+    </link>
+
     <!-- BACK LEFT WHEEL LINK -->
 
     <joint name="back_left_wheel_joint" type="continuous">
