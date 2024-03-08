@@ -183,7 +183,9 @@ Note: Before you get started make sure to source build from dev_ws/
     Note: bot_name can be changed since it is only what is displayed in gazebo
         ros2 run gazebo_ros spawn_entity.py -topic robot_description -entity bot_name
 
-Now create a launch file to run all 3 of these at once.
+Now create a launch file to run all 3 of these at once. The file is called launch_sim.launch.py.
+Use the following command to call it.
+    ros2 launch my_bot launch_sim.launch.py
 
 
 
