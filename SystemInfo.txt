@@ -134,7 +134,7 @@ Test installation
 
 
 ----------------------------------------------------------------------------------------------------
-Creating a rough 3D model of our robot with URDF
+Making a Mobile Robot #2 - Creating a rough 3D model of our robot with URDF
 ----------------------------------------------------------------------------------------------------
 
 This is the video that explains how to start making a URDF of our robot. Since our robot is 
@@ -160,3 +160,64 @@ To run simulation:
         
     3. Run RVIZ using the following configuration command from dev_ws/
         rviz2 -d src/my_bot/config/view_bot.rviz 
+
+
+
+----------------------------------------------------------------------------------------------------
+Making a Mobile Robot #3 - Concept Design Gazebo
+----------------------------------------------------------------------------------------------------
+
+Note: Before you get started make sure to source build from dev_ws/
+    source install/setup.bash
+
+1. Launch robot_state_publisher in sim mode
+    ros2 launch my_bot rsp.launch.py use_sim_time:=true
+
+2. Launch Gazebo with ROS compatibility
+    2.1. Install Gazebo on first
+        sudo apt install ros-humble-gazebo-ros-pkgs
+    2.2. Run gazebo in new terminal
+        ros2 launch gazebo_ros gazebo.launch.py
+
+3. Spawn robot in gazebo with spawn script
+    Note: bot_name can be changed since it is only what is displayed in gazebo
+        ros2 run gazebo_ros spawn_entity.py -topic robot_description -entity bot_name
+
+Now create a launch file to run all 3 of these at once.
+
+
+
+----------------------------------------------------------------------------------------------------
+Making a Mobile Robot #4 - Raspberry Pi
+----------------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------------------
+Making a Mobile Robot #5 - Power Concepts
+----------------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------------------
+Making a Mobile Robot #6 - 	Robot Power 2: Electric Boogaloo
+----------------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------------------
+Making a Mobile Robot #7 - The Ultimate Guide to using Motors in Robotics (including ROS, Raspberry Pi)
+----------------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------------------
+Making a Mobile Robot #8 - Adding a Lidar
+----------------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------------------
+Making a Mobile Robot #9 - Adding a Camera
+----------------------------------------------------------------------------------------------------
+
