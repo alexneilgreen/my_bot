@@ -126,7 +126,7 @@
     </link>
 
     <gazebo reference="chassis_top">
-        <material>Gazebo/Black</material>
+        <material>Gazebo/Gold</material>
     </gazebo>
 
     <!-- LID LINK -->
@@ -154,7 +154,7 @@
     </link>
 
     <gazebo reference="lid">
-        <material>Gazebo/Gold</material>
+        <material>Gazebo/Black</material>
     </gazebo>
 
     <!-- BACK LEFT WHEEL LINK -->
