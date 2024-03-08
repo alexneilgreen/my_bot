@@ -187,6 +187,13 @@ Now create a launch file to run all 3 of these at once. The file is called launc
 Use the following command to call it.
     ros2 launch my_bot launch_sim.launch.py
 
+Create Differential drive control file "gazebo_control.xacro"
+    colcon build --symlink-install
+
+Run gazebo with keyboard controll. Run each command in a different terminal.
+    ros2 launch my_bot launch_sim.launch.py
+    ros2 run teleop_twist_keyboard teleop_twist_keyboard
+
 
 
 ----------------------------------------------------------------------------------------------------
