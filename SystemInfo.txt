@@ -201,6 +201,21 @@ Run gazebo in test world. Run each command in a different terminal.
 
 
 ----------------------------------------------------------------------------------------------------
+XBOX CONTROLLER TESTING
+----------------------------------------------------------------------------------------------------
+
+Here i am attempting to get an xbox 360 controller to work with the Pi over bluetooth.
+ - If this fails, I have a logitech controller on order with a USB bluetooth adapter
+
+ Terminal Commands:
+ 
+    sudo -s
+
+    sudo echo 'Y' > /sys/module/bluetooth/parameters/disable_ertm
+
+
+
+----------------------------------------------------------------------------------------------------
 Making a Mobile Robot #4 - Raspberry Pi
 ----------------------------------------------------------------------------------------------------
 
