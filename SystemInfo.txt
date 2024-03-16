@@ -212,6 +212,12 @@ Here i am attempting to get an xbox 360 controller to work with the Pi over blue
     sudo -s
 
     sudo echo 'Y' > /sys/module/bluetooth/parameters/disable_ertm
+    
+New Terminal:
+
+    Sudo apt install joystick
+    
+    Sudo apt install jstest-gtk
 
 
 
