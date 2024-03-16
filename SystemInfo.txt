@@ -219,11 +219,16 @@ New Terminal:
     
     Sudo apt install jstest-gtk
 
+At this point we purchased a wireless logitech controller with its own usb adapter for connecting
+to the controller. This has proven to be very effective and only cost $15.
+
 
 
 ----------------------------------------------------------------------------------------------------
 Making a Mobile Robot #4 - Raspberry Pi
 ----------------------------------------------------------------------------------------------------
+
+Done
 
 
 
@@ -231,17 +236,24 @@ Making a Mobile Robot #4 - Raspberry Pi
 Making a Mobile Robot #5 - Power Concepts
 ----------------------------------------------------------------------------------------------------
 
+Done
+
 
 
 ----------------------------------------------------------------------------------------------------
 Making a Mobile Robot #6 - 	Robot Power 2: Electric Boogaloo
 ----------------------------------------------------------------------------------------------------
 
+Done
+
 
 
 ----------------------------------------------------------------------------------------------------
 Making a Mobile Robot #7 - The Ultimate Guide to using Motors in Robotics (including ROS, Raspberry Pi)
 ----------------------------------------------------------------------------------------------------
+
+Done - Note we are using a arduino mega and 4 motors as opposed to an aruino nano and 2 motors.
+       Because of this, I am going to have to write my own ROS to arduino Bridge.
 
 
 
