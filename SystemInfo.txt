@@ -220,7 +220,7 @@ New Terminal:
     Sudo apt install jstest-gtk
 
 At this point we purchased a wireless logitech controller with its own usb adapter for connecting
-to the controller. This has proven to be very effective and only cost $15.
+to the controller. This has proven to be very effective and only cost.
 
 
 
@@ -254,15 +254,6 @@ Making a Mobile Robot #7 - The Ultimate Guide to using Motors in Robotics (inclu
 
 Done - Note we are using a arduino mega and 4 motors as opposed to an aruino nano and 2 motors.
        Because of this, I am going to have to write my own ROS to arduino Bridge.
-
-Motors are connected to arduino mega via a breadboard and motor controllers.
-Now I am getting the software running in order to move the motoros.
-
-Download joshnewans github code to test motors.
-
-Commands in Terminal
-    
-    sudo apt install python3-serial
 
 
 
