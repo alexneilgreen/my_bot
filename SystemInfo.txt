@@ -222,7 +222,7 @@ New Terminal:
     Sudo apt install jstest-gtk
 
 At this point we purchased a wireless logitech controller with its own usb adapter for connecting
-to the controller. This has proven to be very effective and only cost $15.
+to the controller. This has proven to be very effective and only cost.
 
 
 
