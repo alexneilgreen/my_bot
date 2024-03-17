@@ -131,6 +131,8 @@ Test installation
     
     gazebo /usr/share/gazebo-11/worlds/seesaw.world
 
+https://classic.gazebosim.org/tutorials?tut=install_ubuntu
+
 
 
 ----------------------------------------------------------------------------------------------------
@@ -264,13 +266,32 @@ Commands in Terminal
     
     sudo apt install python3-serial
 
+NOT DONE>>>WAITING TO HEAR BACK FROM JOSH NEWANS (March 16th)
+
 
 
 ----------------------------------------------------------------------------------------------------
 Making a Mobile Robot #8 - Adding a Lidar
 ----------------------------------------------------------------------------------------------------
 
+sensor_msgs/LaserScan publishes a 2D laser scan of enviornment
 
+sensor_msgs/PointCloud2 publishes a 3D laser scan of enviornment
+
+In the home directory, install rplidar driver
+    sudo apt install ros-humble-rplidar-ros
+
+To run lidar once plugged in and driver Installed. Note: serial_port may be different
+    ros2 run rplidar_ros rplidar_composition --ros-args -p serial_port:=/dev/ttyUSB0 -p frame_id:=laser_frame -p angle_compensate:=true -p scan_mode:=Standard
+
+To find proper serial port run this command
+    ls /dev/serial/by-path
+Note: that running the same command but "by-id" will return the lidar's name
+
+CURRENT ERROR:
+    [INFO] [1710644813.187891183] [rplidar_node]: RPLidar running on ROS2 package rplidar_ros. RPLIDAR SDK Version:2.0.0
+    [ERROR] [1710644817.238306934] [rplidar_node]: Error, operation time out. SL_RESULT_OPERATION_TIMEOUT! 
+    [ros2run]: Process exited with failure 255
 
 ----------------------------------------------------------------------------------------------------
 Making a Mobile Robot #9 - Adding a Camera
