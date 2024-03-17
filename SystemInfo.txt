@@ -293,6 +293,11 @@ CURRENT ERROR:
     [ERROR] [1710644817.238306934] [rplidar_node]: Error, operation time out. SL_RESULT_OPERATION_TIMEOUT! 
     [ros2run]: Process exited with failure 255
 
+Solution:
+    Different Lidar Driver for ROS2 Humble
+
+New Driver: https://index.ros.org/p/rplidar_ros/
+
 ----------------------------------------------------------------------------------------------------
 Making a Mobile Robot #9 - Adding a Camera
 ----------------------------------------------------------------------------------------------------
