@@ -343,3 +343,75 @@ Notes for RVIZ
 Making a Mobile Robot #9 - Adding a Camera
 ----------------------------------------------------------------------------------------------------
 
+In thise section I created the xacro files for the front and rear cameras.
+
+These files are called front_camera.xacro and rear_camera.xacro.
+    Note: I will probably have to go back in and change the sensor data since we ordered new cameras
+
+Now cameras are simulated in Gazebo and RVIZ
+
+In order to use all the image viewing tools required run the following Commands
+    sudo apt install libraspberrypi-bin v4l-utils ros-humble-image-transport-plugins
+    sudo usermod -aG video baaa
+
+Then to see if cameras are recognized use the following command
+    vcgencmd get_camera
+
+NOTE: At this point, our original cameras (Arducam IMX708) were not recognized so we had to stop
+      development until out new cameras come in (Raspberry Pi Cam M2). We need to finish this
+      tutorial once the our new cameras come in.
+
+
+
+----------------------------------------------------------------------------------------------------
+Making a Mobile Robot #11 - Designing a chassis for our robot!(+ other fixes)
+----------------------------------------------------------------------------------------------------
+
+Lightdm fix & Package cloning
+    I did not do this because it only addresses a minor usage of resources
+
+Chassis Design - I did this between SD1 and SD2
+
+
+
+----------------------------------------------------------------------------------------------------
+Making a Mobile Robot #12 - Solving the problem EVERY robot has (with ros2_control)
+----------------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------------------
+Making a Mobile Robot #12a - ros2_control Extra Bits
+----------------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------------------
+Making a Mobile Robot #13 - Using ros2_control to drive out robot (off the ege of the bench...)
+----------------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------------------
+Making a Mobile Robot #15 - Easy SLAM with ROS using slam_toolbox
+----------------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------------------
+Making a Mobile Robot #16 - Making robot navigation easy with NAV2 and ROS!!
+----------------------------------------------------------------------------------------------------
+
+
+
+----------------------------------------------------------------------------------------------------
+Making a Mobile Robot #17 - One thing every robot should have...
+----------------------------------------------------------------------------------------------------
+
+GUI VIDEO
+
+
+
+----------------------------------------------------------------------------------------------------
+Making a Mobile Robot #18 - Object Tracking with OpenCV
+----------------------------------------------------------------------------------------------------
