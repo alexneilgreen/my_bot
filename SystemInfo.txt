@@ -298,6 +298,47 @@ Solution:
 
 New Driver: https://index.ros.org/p/rplidar_ros/
 
+After cloning this driver into <ws_name>/src the following was done.
+
+    1. Inside of <ws_name>/src/rplidar_ros/launch, duplicatee the rplidar_a1_launch.py file.
+        1.1 Rename the original to rplidar_a1_launch_original.py.
+        1.2 In the new rplidar_a1_launch.py, Modify the code to follow the articulatedrobotics 
+            parameters.
+    
+    2. Create new file called rplidar.launch.py to follow articulatedrobotics naming convention
+        2.1 Within this file create a launch file similar to the articulatedrobotics example that
+            works with new driver.
+
+How to run Lidar with RVIZ.
+
+    This should be very similar to the articulatedrobotics example but is different due to the 
+    different driver and file location. For the following instructions I will have the example from
+    the videos and then my version. Note the video examples will NOT work, but this should inform us 
+    on how to properly call stuff later.
+
+To run Lidar Node with launch file from <ws_name>
+Note: The launch file for actual is within <ws_name>/src/rplidar_ros/launch
+    Video:  ros2 launch rplidar.launch.py
+    Actual: ros2 launch rplidar_ros rplidar.launch.py
+
+Stop and Start Motor in a different terminal from <ws_name> once Lidar Node is running.
+Note: This one does work the same for both
+    Video (Start):  ros2 service call /start_motor std_srvs/srv/Empty {}
+    Video (Stop):   ros2 service call /stop_motor std_srvs/srv/Empty {}
+    ACtual (Start): ros2 service call /start_motor std_srvs/srv/Empty {}
+    ACtual (Stop):  ros2 service call /stop_motor std_srvs/srv/Empty {}
+
+Killall rplidar nodes.
+    Video:  killall rplidar_composition
+    ACtual: killall rplidar_node
+
+Notes for RVIZ
+    Set global options -> Fixed Frame to laser_frame
+    Add a Laser scan
+    Set topic to /scan
+
+
+
 ----------------------------------------------------------------------------------------------------
 Making a Mobile Robot #9 - Adding a Camera
 ----------------------------------------------------------------------------------------------------
