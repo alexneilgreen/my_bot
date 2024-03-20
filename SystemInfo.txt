@@ -361,6 +361,29 @@ NOTE: At this point, our original cameras (Arducam IMX708) were not recognized s
       development until out new cameras come in (Raspberry Pi Cam M2). We need to finish this
       tutorial once the our new cameras come in.
 
+ ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- 
+Development resumed with new cameras (March 19th)
+ ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- 
+
+New Cameras connected.
+
+For Ubuntu MATE to recognize the cameras, a modification is needed in the /boot/firmware/config.txt
+file. Reference the articulatedrobotics Foxy to Humble video (11:00)
+
+Then use the following command to run the camera node
+    ros2 run v4l2_camera v4l2_camera_node --ros-args -p image_size:="[640,480]" -p camera_frame_id:=front_camera_optical_link
+
+In a different terminal run the following command to view the camera feed
+    ros2 run rqt_image_view rqt_image_view
+
+Now select the camera feed option you would like to displayed
+
+Finally we created the camera node launch file
+    Single camera use: original_camera.launch.py
+    Dual camera use: camera.launch.py
+
+Done
+
 
 
 ----------------------------------------------------------------------------------------------------
