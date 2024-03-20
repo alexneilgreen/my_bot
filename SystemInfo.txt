@@ -10,6 +10,8 @@ Installed openssh-server using "sudo apt install openssh-server"
 To access Robot Pi remotely, use "ssh baaa@192.168.1.132"
 To access Dev Machine remotely, use "ssh baaa@192.168.1.173"
 
+NOT DONE>>>Modify Netplan file
+
 
 
 ----------------------------------------------------------------------------------------------------
@@ -66,6 +68,8 @@ Testing to ensure everything works
     On Dev Machine: ros2 run demo_nodes_cpp listener
     On Robot Pi: ros2 run demo_nodes_cpp talker
 
+Done
+
 
 
 ----------------------------------------------------------------------------------------------------
@@ -73,6 +77,8 @@ Testing to ensure everything works
 ----------------------------------------------------------------------------------------------------
 
 This is just a video explaining the concepts and tools within ROS or more specifically ROS2
+
+Done
 
 
 
@@ -96,6 +102,8 @@ Add to github profile
 
 Setup repository and follow instructions for SSH, not HTTPS
 
+Done
+
 
 
 ----------------------------------------------------------------------------------------------------
@@ -105,6 +113,8 @@ The ROS Transformation System (TF) | Getting Ready to Build Robots with ROS #6
 This is just a video explaining the concepts and math behind Transforms (Covered in intro to robotics)
 
 It is a very insightful video talking about frames, directions, vectors, and applications
+
+Done
 
 
 
@@ -116,6 +126,8 @@ This video is where we start our project repository called my_bot and create a U
 3D model that I printed for our senior design project.
 
 Looks at URDF, XACRO, and best practices
+
+Done
 
 
 
@@ -132,6 +144,8 @@ Test installation
     gazebo /usr/share/gazebo-11/worlds/seesaw.world
 
 https://classic.gazebosim.org/tutorials?tut=install_ubuntu
+
+Done
 
 
 
@@ -162,6 +176,8 @@ To run simulation:
         
     3. Run RVIZ using the following configuration command from dev_ws/
         rviz2 -d src/my_bot/config/view_bot.rviz 
+
+Done
 
 
 
@@ -200,6 +216,8 @@ Run gazebo in test world. Run each command in a different terminal.
     ros2 launch my_bot launch_sim.launch.py world:=./src/my_bot/worlds/obstacles.world
     ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
+Done
+
 
 
 ----------------------------------------------------------------------------------------------------
@@ -223,6 +241,8 @@ New Terminal:
 
 At this point we purchased a wireless logitech controller with its own usb adapter for connecting
 to the controller. This has proven to be very effective and only cost.
+
+NOT DONE>>>Will Complete Later
 
 
 
@@ -336,6 +356,8 @@ Notes for RVIZ
     Set global options -> Fixed Frame to laser_frame
     Add a Laser scan
     Set topic to /scan
+
+Done
 
 
 
