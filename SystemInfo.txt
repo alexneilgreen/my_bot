@@ -374,7 +374,7 @@ Now cameras are simulated in Gazebo and RVIZ
 
 In order to use all the image viewing tools required run the following Commands
     sudo apt install libraspberrypi-bin v4l-utils ros-humble-image-transport-plugins
-    sudo apt install ros-humble-v4;2-camera
+    sudo apt install ros-humble-v4l2-camera
     sudo usermod -aG video baaa
 
 Then to see if cameras are recognized use the following command
