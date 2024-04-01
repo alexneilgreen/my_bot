@@ -40,7 +40,7 @@ Testing to ensure everything works
 
     On Dev Machine: ros2 run demo_nodes_py listener
     On Robot Pi: ros2 run demo_nodes_py talker
-
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
  ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- ---------- 
 
 Installing Colcon & Exstensions
@@ -235,9 +235,9 @@ Here i am attempting to get an xbox 360 controller to work with the Pi over blue
     
 New Terminal:
 
-    Sudo apt install joystick
+    sudo apt install joystick
     
-    Sudo apt install jstest-gtk
+    sudo apt install jstest-gtk
 
 At this point we purchased a wireless logitech controller with its own usb adapter for connecting
 to the controller. This has proven to be very effective and only cost.
