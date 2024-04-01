@@ -6,8 +6,6 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
-        - /TF1
-        - /RobotModel1
       Splitter Ratio: 0.5
     Tree Height: 679
   - Class: rviz_common/Selection
@@ -53,24 +51,40 @@ Visualization Manager:
       Enabled: true
       Frame Timeout: 15
       Frames:
-        All Enabled: true
+        All Enabled: false
         back_left_wheel:
           Value: true
         back_right_wheel:
           Value: true
         base_footprint:
-          Value: true
+          Value: false
         base_link:
+          Value: false
+        chassis_base:
+          Value: false
+        chassis_top:
+          Value: false
+        front_camera_link:
+          Value: false
+        front_camera_link_optical:
+          Value: false
+        front_left_wheel:
           Value: true
-        caster_wheel:
+        front_right_wheel:
           Value: true
-        chassis:
-          Value: true
+        laser_frame:
+          Value: false
+        lid:
+          Value: false
+        rear_camera_link:
+          Value: false
+        rear_camera_link_optical:
+          Value: false
       Marker Scale: 1
       Name: TF
-      Show Arrows: true
+      Show Arrows: false
       Show Axes: true
-      Show Names: false
+      Show Names: true
       Tree:
         base_link:
           back_left_wheel:
@@ -79,9 +93,21 @@ Visualization Manager:
             {}
           base_footprint:
             {}
-          chassis:
-            caster_wheel:
-              {}
+          chassis_base:
+            chassis_top:
+              lid:
+                laser_frame:
+                  {}
+            front_camera_link:
+              front_camera_link_optical:
+                {}
+            rear_camera_link:
+              rear_camera_link_optical:
+                {}
+          front_left_wheel:
+            {}
+          front_right_wheel:
+            {}
       Update Interval: 0
       Value: true
     - Alpha: 1
@@ -120,16 +146,54 @@ Visualization Manager:
           Alpha: 1
           Show Axes: false
           Show Trail: false
-        caster_wheel:
+        chassis_base:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
-        chassis:
+        chassis_top:
           Alpha: 1
           Show Axes: false
           Show Trail: false
           Value: true
+        front_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_camera_link_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        front_left_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        front_right_wheel:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        laser_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        lid:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_camera_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        rear_camera_link_optical:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
       Mass Properties:
         Inertia: false
         Mass: false
@@ -199,10 +263,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.41039809584617615
+      Pitch: 0.35539817810058594
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 4.093568325042725
+      Yaw: 4.658589839935303
     Saved: ~
 Window Geometry:
   Displays:
