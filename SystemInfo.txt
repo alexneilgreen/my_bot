@@ -463,7 +463,10 @@ Making a Mobile Robot #12a - ros2_control Extra Bits
 Making a Mobile Robot #13 - Using ros2_control to drive out robot (off the ege of the bench...)
 ----------------------------------------------------------------------------------------------------
 
-    Here Now
+    Skip for now. This is where I will need to connect my software to hardware.
+    
+    I will try to get this running tonight with Antonio (1/2/2024) then tomorrow I will work with
+    Don to try and finalize any bugs with it.
 
 
 ----------------------------------------------------------------------------------------------------
