@@ -447,12 +447,20 @@ Making a Mobile Robot #12 - Solving the problem EVERY robot has (with ros2_contr
 Making a Mobile Robot #12a - ros2_control Extra Bits
 ----------------------------------------------------------------------------------------------------
 
+    Change launch files (launch_sim.launch.py & rsp.launch.py)
 
+    Create gazebo_params.yaml
+        Note: We probably still need to swap from differential drive to skid-steer
+
+    Change robot.urdf.xacro
+
+    Done
 
 ----------------------------------------------------------------------------------------------------
 Making a Mobile Robot #13 - Using ros2_control to drive out robot (off the ege of the bench...)
 ----------------------------------------------------------------------------------------------------
 
+    Here Now
 
 
 ----------------------------------------------------------------------------------------------------
