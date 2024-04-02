@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" >
 
-    <!-- UNITS: Metric units for everything. Kilograms for mass and Meters for length -->
-
     <xacro:include filename="inertial_macros.xacro"/>
 
     <xacro:property name="chassis_base_length" value="0.3556"/>
@@ -73,7 +71,6 @@
     <joint name="chassis_base_joint" type="fixed">
         <parent link="base_link"/>
         <child link="chassis_base"/>
-        <!-- change this so that the origin is on the complete back wall -->
         <origin xyz="${-back_wheel_offset_x} 0 ${-wheel_offset_z}"/>
     </joint>
 

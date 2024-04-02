@@ -424,8 +424,23 @@ Chassis Design - I did this between SD1 and SD2
 Making a Mobile Robot #12 - Solving the problem EVERY robot has (with ros2_control)
 ----------------------------------------------------------------------------------------------------
 
+    Modified robot.urdf.xacro
+    Created ros2_control.xacro
+    Created my_controllers.yaml
+
+    *DELETED COMMENT AT THE TOP OF robot_core.urdf. CAUSED COMPILATION ERROR*
+
     ros2 launch my_bot launch_sim.launch.py world:=./src/my_bot/worlds/obstacles.world
-    ros2 run teleop_twist_keyboard teleop_twist_keyboard
+    ros2 run controller_manager spawner diff_cont
+    ros2 run controller_manager spawner joint_broad
+    ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=diff_cont/cmd_vel_unstamped
+
+    Modified launch_sim.launch.py
+
+    ros2 launch my_bot launch_sim.launch.py world:=./src/my_bot/worlds/obstacles.world
+    ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args -r /cmd_vel:=diff_cont/cmd_vel_unstamped   
+
+    Done 
 
 
 ----------------------------------------------------------------------------------------------------
