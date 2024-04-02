@@ -454,6 +454,9 @@ Making a Mobile Robot #12a - ros2_control Extra Bits
 
     Change robot.urdf.xacro
 
+    Updated diff_cont in my_controllers.yaml to work like skid-steer. Now there is no need to swap.
+    I referenced this site: https://wiki.ros.org/diff_drive_controller
+
     Done
 
 ----------------------------------------------------------------------------------------------------
