@@ -308,10 +308,10 @@ To find proper serial port run this command
     ls /dev/serial/by-path
 Note: that running the same command but "by-id" will return the lidar's name
 
-CURRENT ERROR:
-    [INFO] [1710644813.187891183] [rplidar_node]: RPLidar running on ROS2 package rplidar_ros. RPLIDAR SDK Version:2.0.0
-    [ERROR] [1710644817.238306934] [rplidar_node]: Error, operation time out. SL_RESULT_OPERATION_TIMEOUT! 
-    [ros2run]: Process exited with failure 255
+    CURRENT ERROR:
+        [INFO] [1710644813.187891183] [rplidar_node]: RPLidar running on ROS2 package rplidar_ros. RPLIDAR SDK Version:2.0.0
+        [ERROR] [1710644817.238306934] [rplidar_node]: Error, operation time out. SL_RESULT_OPERATION_TIMEOUT! 
+        [ros2run]: Process exited with failure 255
 
 Solution:
     Different Lidar Driver for ROS2 Humble
@@ -473,7 +473,58 @@ Making a Mobile Robot #13 - Using ros2_control to drive out robot (off the ege o
 Making a Mobile Robot #15 - Easy SLAM with ROS using slam_toolbox
 ----------------------------------------------------------------------------------------------------
 
+Add base_footprint joint/line
 
+    sudo apt install ros-humble-slam-toolbox
+
+Slam toolbox mode: Online Asynchronous
+    Online - Working on live data rather than recorded logs
+    Asynchronous - Doesn't have to process absolutely every scan. Instead it focuses on processing 
+                   the latest scan.
+
+Copying params file into local directory (The next command should be from the home directory)
+    cp /opt/ros/humble/share/slam_toolbox/config/mapper_params_online_async.yaml dev_ws/src/my_bot/config
+
+Launch Gazebo, Rviz, and the Keyboard Controller in seperate terminals. Then launch SLAM with this:
+    ros2 launch slam_toolbox online_async_launch.py slam_params_file:=./src/my_bot/config/mapper_params_online_async.yaml use_sim_time:=true
+
+Then in Rviz add a map with topic /map
+
+Now the fixed frame has two options for Global Options
+    1. odom - map might jump around but robot model won't
+    2. map - robot might jump around but map won't (Suggested)
+
+In Rviz (After you have a map) click panels>add panel>SlamToolboxPanel
+    Save Map is an oldeer format to provide data to other systems
+    Serialize Map is to save map to use again with slam_toolbox
+
+    Save in both formats
+
+For localization instructions go to 15:30 (Test with new obstacle world)
+
+Install for NAV2
+    sudo apt install ros-humble-navigation2 ros-humble-nav2-bringup ros-humble-turtlebot3*
+    Ref: https://navigation.ros.org/getting_started/index.html
+
+AMCL
+
+Run Map Server (Publishes map data on map_server nodee posting to /map topic)
+    ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=my_test_hall_save.yaml -p use_sim_time:=true
+
+In new tab run nav2 to activate map node
+    ros2 run nav2_util lifecycle_bringup map_server
+
+IF MAP DOESN'T SHOW UP 20:00
+
+Now launch AMCL
+    ros2 run nav2_amcl amcl --ros-args -p use_sim_time:=true
+
+In new tab run nav2 to activate amcl node
+    ros2 run nav2_util lifecycle_bringup amcl
+
+Initialize Pose (equivalent of setting /initialpose topic) 21:30
+
+REAL ROBOT IMPLEMENTATION (22:30)
 
 ----------------------------------------------------------------------------------------------------
 Making a Mobile Robot #16 - Making robot navigation easy with NAV2 and ROS!!
